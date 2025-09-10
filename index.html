@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proxy Browser</title>
+  <style>
+    body { font-family: sans-serif; margin: 30px; }
+    #resultFrame { border: 1px solid #ccc; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Proxy Browser (Demo)</h1>
+  <form id="proxyForm">
+    <input type="text" id="urlInput" placeholder="https://example.com" size="50">
+    <button type="submit">Go</button>
+  </form>
+  <iframe id="resultFrame" width="900" height="600"></iframe>
+  <script>
+    document.getElementById('proxyForm').onsubmit = function(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(document.getElementById('urlInput').value);
+      document.getElementById('resultFrame').src = '/proxy?url=' + url;
+    };
+  </script>
+</body>
+</html>
